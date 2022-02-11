@@ -25,7 +25,7 @@ export const NavMenu = () => {
         <Collapse navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Platos</NavLink>
+              <NavLink href="/platos">Platos</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">Reservas</NavLink>
