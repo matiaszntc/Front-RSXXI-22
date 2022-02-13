@@ -28,7 +28,7 @@ export const NavMenu = () => {
               <NavLink href="/platos">Platos</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">Reservas</NavLink>
+              <NavLink href="/reserva">Reservas</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">Contacto</NavLink>
