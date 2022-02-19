@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import {
-
+    Spinner,
     Table,
-
+    Alert
 } from "reactstrap";
 
 export const Reserva = () => {
 
     const [reserva, setReserva] = useState([]);
+    const [estado, setEstado] = useState(true);
 
     const URL = `http://localhost:8080/api/reservas/${localStorage.getItem("IDusuario")}`;
     const OPTIONS_GET = {
@@ -29,16 +30,24 @@ export const Reserva = () => {
             console.log(error);
         }
     };
+    const Loading = () => {
+        setEstado(true)
+        setTimeout(() => { setEstado(false) }, 2990)
+    }
 
     useEffect(() => {
         document.title = "Reserva";
         getReserva();
-    }, );
+        Loading();
+    }, []);
 
 
     return (
         <div>
             <h1>Hola</h1>
+            {estado ? (<Spinner color="info">
+                Loading...
+            </Spinner>) : reserva.length > 0 ? (
             <Table>
                 <thead>
                     <tr>
@@ -62,7 +71,12 @@ export const Reserva = () => {
                         </tr>
                     </tbody>
                 ))}
-            </Table>
+            </Table>) :
+                (<Alert
+                    color="danger"
+                >
+                    Usted no esta logueado o no tiene reservas activas
+                </Alert>)}
         </div>
     )
 }

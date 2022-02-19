@@ -9,6 +9,7 @@ export const NavMenu = () => {
   const logout = () => {
     localStorage.clear()
     window.location.reload()
+    window.location.href = '/'
   }
   useEffect(() => {
     setToken(localStorage.getItem("token"))
@@ -31,6 +32,9 @@ export const NavMenu = () => {
               <NavLink href="/reserva">Reservas</NavLink>
             </NavItem>
             <NavItem>
+              <NavLink href="/crearReserva">Crear Reserva</NavLink>
+            </NavItem>
+            <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">Contacto</NavLink>
             </NavItem>
             <UncontrolledDropdown inNavbar nav>
@@ -51,8 +55,8 @@ export const NavMenu = () => {
                     <UncontrolledDropdown inNavbar nav>
                       <DropdownToggle caret nav>{nombre}</DropdownToggle>
                       <DropdownMenu right>
-                            <DropdownItem>Reserva</DropdownItem>
-                            <DropdownItem>Menu</DropdownItem>
+                            <DropdownItem href='/reserva'>Reserva</DropdownItem>
+                            <DropdownItem href='/platos'>Platos</DropdownItem>
                               {/* para yo en el futuro es para dividir la wea DIVIDER*/}
                             <DropdownItem divider /> 
                             <DropdownItem onClick={logout}>logout</DropdownItem>
