@@ -28,6 +28,7 @@ export const CrearReserva = () => {
             const res = await fetch(url, options);
             const data = await res.text()
             console.log(data)
+            window.location.href="/reserva"
             alert(data)
             
         } catch (error) {
