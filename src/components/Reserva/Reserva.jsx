@@ -7,6 +7,7 @@ import {
 } from "reactstrap";
 
 
+
 export const Reserva = () => {
     const IDusuario = localStorage.getItem("IDusuario")
     const [reserva, setReserva] = useState([]);
@@ -52,7 +53,7 @@ export const Reserva = () => {
             const res = await fetch(URL2, OPTIONS_PUT); 
             const data = await res.text();
             console.log("id reserva:", data)
-            alert(data)
+            alert("Lastima que canceles tú reserva: ", localStorage.getItem("nombre"))
             window.location.reload()
             // `${URL}/cliente/cancelar-reserva/${id}`
         } catch (error) {
@@ -77,11 +78,10 @@ export const Reserva = () => {
                 <thead>
                     <tr>
                         <th>Estado</th>
-                        <th>idReserva</th>
+                        <th>Numero Reserva</th>
                         <th>Nombre</th>
                         <th>Dia</th>
-                        <th>Hora</th>
-                        <th></th>
+                        
                     </tr>
                 </thead>
                 {reserva.map((reserva) => (
@@ -90,9 +90,8 @@ export const Reserva = () => {
                             <td>{reserva.estado}</td>
                             <td>{reserva.idReserva}</td>
                             <td>{reserva.Nombre}</td>
-                            <td>Jueves xD</td>
-                            <td>12:00 pm</td>
-                            <td className="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <td>{reserva.fecha}</td>
+                            <td align='right'>
                              {reserva.estado === "C" ? null :  <Button color='danger' onClick={() => cancelar(reserva.idReserva)} >Cancelar</Button>}
                             </td>
                         </tr>

@@ -29,9 +29,6 @@ export const NavMenu = () => {
               <NavLink href="/platos">Platos</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/reserva">Reservas</NavLink>
-            </NavItem>
-            <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">Contacto</NavLink>
             </NavItem>
             <UncontrolledDropdown inNavbar nav>
@@ -55,7 +52,6 @@ export const NavMenu = () => {
                             <DropdownItem href='/reserva'>Reserva</DropdownItem>
                             <DropdownItem href='/platos'>Platos</DropdownItem>
                             <DropdownItem href='/crearReserva'>Crear Reserva</DropdownItem>
-                            <DropdownItem href='/cancelarReserva'>Cancelar Reserva</DropdownItem>
                               {/* para yo en el futuro es para dividir la wea DIVIDER*/}
                             <DropdownItem divider /> 
                             <DropdownItem onClick={logout}>logout</DropdownItem>
