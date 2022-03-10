@@ -78,14 +78,14 @@ export const Reserva = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container mt-3">
       <h1>Reservas</h1>
       {estado ? (
         <Spinner color="info">Loading...</Spinner>
       ) : reserva.length > 0 ? (
         <CardGroup>
           {reserva.map((reserva) => (
-            <Card>
+            <Card className="mx-2 my-2">
               <CardBody>
               <CardTitle tag="h5">
                     Estado

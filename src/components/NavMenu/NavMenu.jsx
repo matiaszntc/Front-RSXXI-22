@@ -31,16 +31,9 @@ export const NavMenu = () => {
             <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">Contacto</NavLink>
             </NavItem>
-            <UncontrolledDropdown inNavbar nav>
-              <DropdownToggle caret nav>Options</DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                {/* para yo en el futuro es para dividir la wea DIVIDER*/}
-                <DropdownItem divider /> 
-                <DropdownItem>Reset</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            <NavItem>
+              <NavLink href="/reserva">Reserva</NavLink>
+            </NavItem>
           </Nav>
           <Nav navbar>
               {
