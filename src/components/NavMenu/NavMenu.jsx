@@ -29,7 +29,7 @@ export const NavMenu = () => {
               <NavLink href="/platos">Platos</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">Contacto</NavLink>
+              <NavLink href="/Contacto">Contacto</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/reserva">Reserva</NavLink>

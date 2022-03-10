@@ -79,13 +79,17 @@ export const Reserva = () => {
 
   return (
     <div className="container mt-3">
-      <h1>Reservas</h1>
+      <div className="text-center">
+        <h1>Reserva</h1>
+        <hr />
+      </div>
       {estado ? (
         <Spinner color="info">Loading...</Spinner>
       ) : reserva.length > 0 ? (
-        <CardGroup>
+        <div className="row">
           {reserva.map((reserva) => (
-            <Card className="mx-2 my-2">
+            <div className="col-md-3">
+              <Card className="mx-1 my-3">
               <CardBody>
               <CardTitle tag="h5">
                     Estado
@@ -111,8 +115,9 @@ export const Reserva = () => {
                 )}
               </CardBody>
             </Card>
+            </div>
           ))}
-        </CardGroup>
+        </div>
       ) : (
         <Alert color="danger">
           Usted no esta logueado o no tiene reservas activas

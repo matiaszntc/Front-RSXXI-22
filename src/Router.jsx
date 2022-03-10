@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Contacto from './components/Contacto/Contacto';
 import { Home } from './components/Home/Home';
 import { Login } from './components/Login/Login';
 import { Pelu } from './components/pelu';
@@ -20,6 +21,7 @@ function Router() {
         <Route path='/register' element={<Register/>} />
         <Route path='/platos' element={<Platos/>} />
         <Route path='/crearReserva' element={<CrearReserva/>} />
+        <Route path='/contacto' element={<Contacto/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -51,12 +51,17 @@ export const Platos = () => {
 
   return (
     <div className="container mt-5 ">
+      <div className="text-center">
+        <h1>Platos</h1>
+        <hr />
+      </div>
       {estado ? (
         <Spinner color="info">Loading...</Spinner>
       ) : platos.length > 0 ? (
-        <CardGroup className="row">
+        <div className="row">
           {platos.map((plato) => (
-            <Card>
+            <div className="col-md-4">
+              <Card>
                 <CardImg
                   alt="Card image cap"
                   src="https://www.recetaslider.cl/wp-content/uploads/2021/06/principal_5fb4243e331f1.jpg"
@@ -71,9 +76,10 @@ export const Platos = () => {
                   </CardSubtitle>
                   <CardText>{plato.precio}</CardText>
                 </CardBody>
-            </Card>
+              </Card>
+            </div>
           ))}
-        </CardGroup>
+        </div>
       ) : (
         <Alert color="danger">No hay platos en este momento</Alert>
       )}
