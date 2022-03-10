@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import {
   Alert,
   Table,
@@ -10,12 +10,10 @@ import {
   CardTitle,
   CardSubtitle,
   Button,
-  CardText
-
+  CardText,
 } from "reactstrap";
 
 export const Platos = () => {
-
   const [platos, setPlatos] = useState([]);
   const [estado, setEstado] = useState(true);
 
@@ -39,9 +37,11 @@ export const Platos = () => {
   };
 
   const Loading = () => {
-    setEstado(true)
-    setTimeout(() => { setEstado(false) }, 2990)
-  }
+    setEstado(true);
+    setTimeout(() => {
+      setEstado(false);
+    }, 2990);
+  };
 
   useEffect(() => {
     document.title = "Platos";
@@ -49,70 +49,53 @@ export const Platos = () => {
     Loading();
   }, []);
 
-
-
   return (
-    <div className='container'>
-      {estado ? (<Spinner color="info">
-        Loading...
-      </Spinner>) : platos.length > 0 ? (
-        <CardGroup>
+    <div className="container mt-5 ">
+      {estado ? (
+        <Spinner color="info">Loading...</Spinner>
+      ) : platos.length > 0 ? (
+        <CardGroup className="row">
           {platos.map((plato) => (
-        <Card>
-          <CardImg
-            alt="Card image cap"
-            src="https://picsum.photos/318/180"
-            top
-            width="100%"
-          />
+            <Card>
+                <CardImg
+                  alt="Card image cap"
+                  src="https://www.recetaslider.cl/wp-content/uploads/2021/06/principal_5fb4243e331f1.jpg"
+                  top
+                  width="100%"
+                />
 
-          <CardBody>
-            <CardTitle tag="h5">
-              {plato.descripcion}
-            </CardTitle>
-            <CardSubtitle
-              className="mb-2 text-muted"
-              tag="h6"
-            >
-              Precio
-            </CardSubtitle>
-            <CardText>
-              {plato.precio}
-            </CardText>
-            <Button>
-              Button
-            </Button>
-          </CardBody>
-          
-        </Card>
-        ))}
-
-      </CardGroup>
-      ) : (<Alert
-        color="danger"
-        >
-        No hay platos en este momento
-      </Alert>)}
+                <CardBody>
+                  <CardTitle tag="h5">{plato.descripcion}</CardTitle>
+                  <CardSubtitle className="mb-2 text-muted" tag="h6">
+                    Precio
+                  </CardSubtitle>
+                  <CardText>{plato.precio}</CardText>
+                </CardBody>
+            </Card>
+          ))}
+        </CardGroup>
+      ) : (
+        <Alert color="danger">No hay platos en este momento</Alert>
+      )}
     </div>
-  )
-}
+  );
+};
 
-
-        // <Table>
-        //   <thead>
-        //     <tr>
-        //       <th>Descripcion</th>
-        //       <th>Valor </th>
-        //     </tr>
-        //   </thead>
-        //   {platos.map((plato) => (
-        //     <tbody>
-        //       <tr>
-        //         <td>{plato.descripcion}</td>
-        //         <td>{plato.precio}</td>
-        //         <td className="d-grid gap-2 d-md-flex justify-content-md-end">
-        //         </td>
-        //       </tr>
-        //     </tbody>
-        //   ))}
-        // </Table>
+// <Table>
+//   <thead>
+//     <tr>
+//       <th>Descripcion</th>
+//       <th>Valor </th>
+//     </tr>
+//   </thead>
+//   {platos.map((plato) => (
+//     <tbody>
+//       <tr>
+//         <td>{plato.descripcion}</td>
+//         <td>{plato.precio}</td>
+//         <td className="d-grid gap-2 d-md-flex justify-content-md-end">
+//         </td>
+//       </tr>
+//     </tbody>
+//   ))}
+// </Table>

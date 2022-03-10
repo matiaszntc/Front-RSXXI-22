@@ -4,7 +4,7 @@ import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, Un
 
 export const NavMenu = () => {
   const [token, setToken] = useState(null)
-  const [nombre, setNombre] = useState("Ricardo Judio")
+  const [nombre, setNombre] = useState("Usuario??")
  
   const logout = () => {
     localStorage.clear()

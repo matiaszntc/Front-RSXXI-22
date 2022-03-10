@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const CrearReserva = () => {
-  const [personas, setPersonas] = useState(0);
-  const [fecha, setFecha] = useState();
+    const [personas, setPersonas] = useState(0);
+    const [fecha, setFecha] = useState();
+    
+    const [dia, setDia] = useState();
+    const [hora, setHora] = useState();
+    const [diaHora, setDiaHora] = useState();
 
   const crear = async (e) => {
     e.preventDefault();
@@ -13,7 +17,7 @@ export const CrearReserva = () => {
         idUsuario: localStorage.getItem("IDusuario"),
         tipoUsuario: "CLI",
         idMesa: 6,
-        fecha: fecha,
+        fecha: diaHora,
         cantidadPersona: personas,
         estado: "R",
       }),
@@ -26,14 +30,18 @@ export const CrearReserva = () => {
     try {
       const res = await fetch(url, options);
       const data = await res.text();
-      console.log(data);
-      window.location.href = "/reserva";
       alert(data);
+      window.location.href = "/reserva";
     } catch (error) {
       alert("Datos mal ingresados");
       console.log(error);
     }
   };
+
+
+  useEffect(() => {
+    setDiaHora(`${dia}T${hora}`)
+  })
 
   return (
     <div className="container">
@@ -52,7 +60,7 @@ export const CrearReserva = () => {
               <form>
                 <div className="row">
                   <h3>Fecha</h3>
-                  <div className="col-md-6 form-group">
+                  <div className="form-group">
                     <div
                       className="input-group date"
                       id="datetimepicker4"
@@ -66,6 +74,9 @@ export const CrearReserva = () => {
                         placeholder="Fecha"
                         onChange={(e) => setFecha(e.target.value)}
                       />
+                      <input type="date" className="form-control" min={new Date().toJSON().slice(0,10)} onChange={(e) => setDia(e.target.value)}/>
+
+                      <input type="time" className="form-control" min="13:00" max="22" onChange={(e) => setHora(e.target.value)}/>
                     </div>
                   </div>
 
