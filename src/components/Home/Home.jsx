@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { UncontrolledCarousel } from "reactstrap";
 
 export const Home = () => {
-  const [nombre, setNombre] = useState("Ricardo Judio");
+  const [nombre, setNombre] = useState();
   const [token, setToken] = useState(null);
 
   useEffect(() => {
@@ -35,13 +35,13 @@ export const Home = () => {
                 altText: "",
                 caption: "",
                 key: 2,
-                src: "https://picsum.photos/id/456/1200/600",
+                src: "https://www.recetaslider.cl/wp-content/uploads/2021/06/principal_5fb4243e331f1.jpg",
               },
               {
                 altText: "",
                 caption: "",
                 key: 3,
-                src: "https://picsum.photos/id/678/1200/600",
+                src: "https://www.recetaslider.cl/wp-content/uploads/2021/06/principal_5fb4243e331f1.jpg",
               },
             ]}
           />

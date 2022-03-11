@@ -28,13 +28,17 @@ export const Login = () => {
         try {
             localStorage.clear();
             const res = await fetch(url, options);
-            const data = await res.json()
+            if(res.ok){
+                const data = await res.json()
 
-            localStorage.setItem("token", data.token)
-            localStorage.setItem("nombre", data.nombre)
-            localStorage.setItem("IDusuario", data.idUsuario)
-            alert("Bienvenido "+ data.nombre + "!")
-            window.location.href = '/'  // url del perfil de usuario
+                localStorage.setItem("token", data.token)
+                localStorage.setItem("nombre", data.nombre)
+                localStorage.setItem("IDusuario", data.idUsuario)
+                alert("Bienvenido "+ data.nombre + "!")
+                window.location.href = '/'  // url del perfil de usuario}
+            } else {
+                alert('Usuario Incorrecto');
+            }
         } catch (error) {
             alert('Usuario y/o contrasena incorrectos');
             console.log(error)
@@ -64,7 +68,6 @@ export const Login = () => {
 
                             <input type="submit" className="danger button" value="Conectarme" onClick={conectar} />
                             <br />
-                            <input type="submit" className="danger button" value="Prueba" />
                         </div>
                         <div className="hr"></div>
                         <div className="foot-lnk">

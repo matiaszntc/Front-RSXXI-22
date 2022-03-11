@@ -57,6 +57,7 @@ export const Reserva = () => {
   const cancelar = async (id) => {
     const URL2 = `http://localhost:8080/api/cliente/cancelar-reserva/${id}`;
     try {
+     if(window.confirm("Estas Seguro que desea cancelar la reserva?")){
       const res = await fetch(URL2, OPTIONS_PUT);
       const data = await res.text();
       console.log("id reserva:", data);
@@ -66,6 +67,7 @@ export const Reserva = () => {
       );
       window.location.reload();
       // `${URL}/cliente/cancelar-reserva/${id}`
+     }
     } catch (error) {
       console.log(error);
     }

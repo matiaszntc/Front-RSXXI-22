@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 export const CrearReserva = () => {
     const [personas, setPersonas] = useState(0);
-    const [fecha, setFecha] = useState();
     
     const [dia, setDia] = useState();
     const [hora, setHora] = useState();
@@ -51,14 +50,13 @@ export const CrearReserva = () => {
             style={{ display: "block", marginRight: 'auto', marginLeft:'auto'}}
             className="col-lg-5 mt-5"
           >
-            <div className="section-content bg-white p-5 shadow">
+            <div className="section-content bg-white p-4 shadow">
               <div className="heading-section text-center">
-                <span className="subheading">Reservar</span>
                 <h2>Agenda Tu Reserva Ahora!</h2>
                 <hr />
               </div>
               <form>
-                <div className="row">
+                <div className="row text-center">
                   <h3>Fecha</h3>
                   <div className="form-group">
                     <div
@@ -66,14 +64,6 @@ export const CrearReserva = () => {
                       id="datetimepicker4"
                       data-target-input="nearest"
                     >
-                      <input
-                        id="fecha"
-                        type="dateTime-local"
-                        className="form-control datetimepicker-input"
-                        data-target="#datetimepicker4"
-                        placeholder="Fecha"
-                        onChange={(e) => setFecha(e.target.value)}
-                      />
                       <input type="date" className="form-control" min={new Date().toJSON().slice(0,10)} onChange={(e) => setDia(e.target.value)}/>
 
                       <input type="time" className="form-control" min="13:00" max="22" onChange={(e) => setHora(e.target.value)}/>
